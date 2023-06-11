@@ -1,0 +1,115 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b340139c9e4d054f904d8b452798652, type: 3}
+  m_Name: ES3Defaults
+  m_EditorClassIdentifier: 
+  settings:
+    _location: 0
+    path: SaveFile.es3
+    encryptionType: 0
+    compressionType: 0
+    encryptionPassword: password
+    directory: 0
+    format: 0
+    prettyPrint: 1
+    bufferSize: 2048
+    saveChildren: 1
+    postprocessRawCachedData: 0
+    typeChecking: 1
+    safeReflection: 1
+    memberReferenceMode: 0
+    referenceMode: 2
+    serializationDepthLimit: 64
+    assemblyNames:
+    - ACTk.Editor
+    - ACTk.Examples.Genuine.Editor
+    - ACTk.Examples.Genuine.Runtime
+    - ACTk.Examples.Runtime
+    - ACTk.Runtime
+    - Ak.Wwise.Api.WAAPI
+    - AK.Wwise.Unity.API
+    - AK.Wwise.Unity.API.Editor
+    - AK.Wwise.Unity.API.WwiseTypes
+    - AK.Wwise.Unity.MonoBehaviour
+    - AK.Wwise.Unity.MonoBehaviour.Editor
+    - AK.Wwise.Unity.Timeline
+    - AK.Wwise.Unity.Timeline.Editor
+    - AlmostEngine
+    - AlmostEngine.ExcludeFromBuildTool.Editor
+    - AlmostEngine.Shared.Editor
+    - AlmostEngine.SimpleLocalization.Editor
+    - AlmostEngine.UltimateScreenshotCreator.Editor
+    - Analytics
+    - Assembly-CSharp
+    - Assembly-CSharp-firstpass
+    - AssetUsageDetector.Editor
+    - Autodesk.Fbx
+    - Autodesk.Fbx.Editor
+    - CPM.Account
+    - CPM.CommonUtility
+    - CPM.Connection
+    - CPM.Messenger
+    - CPM.Notifications
+    - CPM.PlayerData
+    - CPM.RemoteConfig
+    - EasySave3
+    - ES3EditorDefenition
+    - FbxBuildTestAssets
+    - FirebaseMessagingActivityGenerator
+    - GoogleMobileAds.Editor
+    - LunarConsole
+    - LunarConsoleEditor
+    - NavMeshComponents
+    - NavMeshComponentsEditor
+    - Newtonsoft.Json.UnityConverters
+    - Newtonsoft.Json.UnityConverters.Addressables
+    - Newtonsoft.Json.UnityConverters.Editor
+    - NGUI
+    - NGUI.Editor
+    - Obi
+    - Obi.Editor
+    - Persistence
+    - PhotonChat
+    - PhotonRealtime
+    - PhotonUnityNetworking
+    - PhotonUnityNetworking.Editor
+    - PhotonUnityNetworking.Utilities
+    - PhotonUnityNetworking.Utilities.Culling.Editor
+    - PhotonUnityNetworking.Utilities.PhotonPlayer.Editor
+    - PhotonVoice
+    - PhotonVoice.API
+    - PhotonVoice.Editor
+    - PhotonVoice.PUN
+    - PhotonVoice.PUN.Editor
+    - PhotonVoice.Utilities.Editor
+    - Purchasing.Common
+    - Sirenix.OdinInspector.CompatibilityLayer
+    - Sirenix.OdinInspector.CompatibilityLayer.Editor
+    - Sirenix.OdinInspector.Modules.UnityMathematics
+    - Tests
+    - UniRx
+    - UniRx.Examples
+    - UniTask
+    - UniTask.Addressables
+    - UniTask.DOTween
+    - UniTask.Editor
+    - UniTask.Linq
+    - UniTask.TextMeshPro
+    - Zenject
+    - Zenject-TestFramework
+    showAdvancedSettings: 0
+  addMgrToSceneAutomatically: 0
+  autoUpdateReferences: 1
+  addAllPrefabsToManager: 1
+  logDebugInfo: 0
+  logWarnings: 1
+  logErrors: 1
