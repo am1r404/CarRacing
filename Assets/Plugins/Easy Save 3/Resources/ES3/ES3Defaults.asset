@@ -30,81 +30,26 @@ MonoBehaviour:
     referenceMode: 2
     serializationDepthLimit: 64
     assemblyNames:
-    - ACTk.Editor
-    - ACTk.Examples.Genuine.Editor
-    - ACTk.Examples.Genuine.Runtime
-    - ACTk.Examples.Runtime
-    - ACTk.Runtime
-    - Ak.Wwise.Api.WAAPI
-    - AK.Wwise.Unity.API
-    - AK.Wwise.Unity.API.Editor
-    - AK.Wwise.Unity.API.WwiseTypes
-    - AK.Wwise.Unity.MonoBehaviour
-    - AK.Wwise.Unity.MonoBehaviour.Editor
-    - AK.Wwise.Unity.Timeline
-    - AK.Wwise.Unity.Timeline.Editor
-    - AlmostEngine
-    - AlmostEngine.ExcludeFromBuildTool.Editor
-    - AlmostEngine.Shared.Editor
-    - AlmostEngine.SimpleLocalization.Editor
-    - AlmostEngine.UltimateScreenshotCreator.Editor
-    - Analytics
     - Assembly-CSharp
     - Assembly-CSharp-firstpass
-    - AssetUsageDetector.Editor
-    - Autodesk.Fbx
-    - Autodesk.Fbx.Editor
-    - CPM.Account
-    - CPM.CommonUtility
-    - CPM.Connection
-    - CPM.Messenger
-    - CPM.Notifications
-    - CPM.PlayerData
-    - CPM.RemoteConfig
+    - Cinemachine
     - EasySave3
     - ES3EditorDefenition
-    - FbxBuildTestAssets
-    - FirebaseMessagingActivityGenerator
-    - GoogleMobileAds.Editor
-    - LunarConsole
-    - LunarConsoleEditor
-    - NavMeshComponents
-    - NavMeshComponentsEditor
-    - Newtonsoft.Json.UnityConverters
-    - Newtonsoft.Json.UnityConverters.Addressables
-    - Newtonsoft.Json.UnityConverters.Editor
-    - NGUI
-    - NGUI.Editor
-    - Obi
-    - Obi.Editor
-    - Persistence
-    - PhotonChat
-    - PhotonRealtime
-    - PhotonUnityNetworking
-    - PhotonUnityNetworking.Editor
-    - PhotonUnityNetworking.Utilities
-    - PhotonUnityNetworking.Utilities.Culling.Editor
-    - PhotonUnityNetworking.Utilities.PhotonPlayer.Editor
-    - PhotonVoice
-    - PhotonVoice.API
-    - PhotonVoice.Editor
-    - PhotonVoice.PUN
-    - PhotonVoice.PUN.Editor
-    - PhotonVoice.Utilities.Editor
-    - Purchasing.Common
+    - MonsterLove.StateMachine.Runtime
+    - MonsterLove.StateMachine.Samples
+    - Nova
+    - Nova.Editor
+    - Nova.UIControls
+    - Nova.UIControls.Editor
+    - NWH.Common
+    - NWH.VehiclePhysics2
+    - NWH.VehiclePhysics2.SetupWizard
+    - NWH.WheelController
+    - PPv2URPConverters
     - Sirenix.OdinInspector.CompatibilityLayer
     - Sirenix.OdinInspector.CompatibilityLayer.Editor
-    - Sirenix.OdinInspector.Modules.UnityMathematics
-    - Tests
-    - UniRx
-    - UniRx.Examples
-    - UniTask
-    - UniTask.Addressables
-    - UniTask.DOTween
-    - UniTask.Editor
-    - UniTask.Linq
-    - UniTask.TextMeshPro
     - Zenject
+    - Zenject-IntegrationTests
     - Zenject-TestFramework
     showAdvancedSettings: 0
   addMgrToSceneAutomatically: 0
