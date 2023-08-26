@@ -1,8 +1,28 @@
-using System.Collections;
-using System.Collections.Generic;
+/*using CodeBase.Infrastructure.States;
 using UnityEngine;
+using Zenject;
 
-public class Bootstrap : MonoBehaviour
+namespace CodeBase.Infrastructure
 {
-    
-}
+    public class Bootstrap : MonoBehaviour
+    {
+        private IGameStateMachine gameStateMachine;
+
+        [Inject]
+        void Construct(IGameStateMachine gameStateMachine)
+        {
+            this.gameStateMachine = gameStateMachine;
+        }
+        
+        private void Start()
+        {
+            gameStateMachine.Enter<BootstrapState>();
+
+            DontDestroyOnLoad(this);
+        }
+
+        public class Factory : PlaceholderFactory<GameBootstrapper>
+        {
+        }
+    }
+}*/
