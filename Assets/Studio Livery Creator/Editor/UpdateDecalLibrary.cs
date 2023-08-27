@@ -20,11 +20,10 @@ public class UpdateDecalLibrary : EditorWindow
             {
                 ++childnum;
             }
-        Content.GetComponent<RectTransform>().offsetMin = new Vector2(Content.GetComponent<RectTransform>().offsetMin.x, -132*(childnum/7));
             for(int i =0;i<childnum;i++)
             GameObject.DestroyImmediate(Content.transform.GetChild(0).gameObject);
+            Sprite spriteFound;
 
-        Sprite spriteFound;
         foreach (string guid2 in guids2)
         {
             spriteFound = (Sprite)AssetDatabase.LoadAssetAtPath(AssetDatabase.GUIDToAssetPath(guid2), typeof(Sprite)); 

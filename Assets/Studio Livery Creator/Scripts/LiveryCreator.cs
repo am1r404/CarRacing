@@ -38,8 +38,8 @@ public class LiveryCreator : MonoBehaviour
         brushCursor.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.5f);
         canvasTexture = new RenderTexture(2048, 2048, 0, RenderTextureFormat.ARGB32);
         canvasTexture.Create();
-        canvasMaterial.SetTexture("_MainTex", canvasTexture);
-        canvasMaterial.SetColor("_Color", new Color(0.9f, 0.9f, 0.9f, 1));
+        canvasMaterial.SetTexture("_BaseMap", canvasTexture);
+        canvasMaterial.SetColor("_BaseColor", new Color(0.9f, 0.9f, 0.9f, 1));
         canvasCam.targetTexture = canvasTexture;
         bodyPaintPicker = FindObjectOfType<BodyPaintPicker>();
         decalPaintPicker = FindObjectOfType<DecalPaintPicker>();
@@ -93,7 +93,7 @@ public class LiveryCreator : MonoBehaviour
             else if (Input.GetMouseButtonUp(0))
             {
                 StartCoroutine(BodyPaintFinalize());
-                canvasMaterial.SetTexture("_MainTex", canvasTexture);
+                canvasMaterial.SetTexture("_BaseMap", canvasTexture);
 
             }
 
@@ -109,7 +109,7 @@ public class LiveryCreator : MonoBehaviour
     {
         if (canvasMaterial.mainTexture != null)
             canvasMaterial.mainTexture = null;
-        canvasMaterial.SetColor("_Color", bodyPaintPicker.resultColor);
+        canvasMaterial.SetColor("_BaseColor", bodyPaintPicker.resultColor);
     }
     IEnumerator BodyPaintFinalize()
     {
@@ -140,7 +140,7 @@ public class LiveryCreator : MonoBehaviour
             }
         }
         tex.SetPixels32(resetColorArray);
-        canvasMaterial.SetColor("_Color", Color.white);
+        canvasMaterial.SetColor("_BaseColor", Color.white);
         tex.Apply();
         baseMaterial.mainTexture = tex;
 
@@ -311,9 +311,9 @@ public class LiveryCreator : MonoBehaviour
     {
         Texture2D livery;
         livery = (Texture2D)AssetDatabase.LoadAssetAtPath("Assets/Studio Livery Creator/MyLiveries/" + path, typeof(Texture2D));
-        liveryMaterial.SetTexture("_MainTex", livery);
-        var _Glossiness = canvasMaterial.GetFloat("_Glossiness");
-        liveryMaterial.SetFloat("_Glossiness", _Glossiness);
+        liveryMaterial.SetTexture("_BaseMap", livery);
+        var _Glossiness = canvasMaterial.GetFloat("_Smoothness");
+        liveryMaterial.SetFloat("_Smoothness", _Glossiness);
         var _Metallic = canvasMaterial.GetFloat("_Metallic");
         liveryMaterial.SetFloat("_Metallic", _Metallic);
     }
