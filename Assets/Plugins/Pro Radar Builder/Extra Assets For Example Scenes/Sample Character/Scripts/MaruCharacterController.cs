@@ -24,8 +24,8 @@ using System.Collections;
             public float crouchChangeSpeed = 4; // speed at which capsule changes height when crouching/standing
             public float autoTurnThresholdAngle = 100; // character auto turns towards camera direction if facing away by more than this angle
             public float autoTurnSpeed = 2; // speed at which character auto-turns towards cam direction
-            public PhysicMaterial zeroFrictionMaterial; // used when in motion to enable smooth movement
-            public PhysicMaterial highFrictionMaterial; // used when stationary to avoid sliding down slopes
+            public PhysicsMaterial zeroFrictionMaterial; // used when in motion to enable smooth movement
+            public PhysicsMaterial highFrictionMaterial; // used when stationary to avoid sliding down slopes
             public float jumpRepeatDelayTime = 0.25f; // amount of time that must elapse between landing and being able to jump again
             public float runCycleLegOffset = 0.2f; // animation cycle offset (0-1) used for determining correct leg to jump off
             public float groundStickyEffect = 5f; // power of 'stick to ground' effect - prevents bumping down slopes.
@@ -111,7 +111,7 @@ using System.Collections;
             this.currentLookPos = lookPos;
 
             // grab current velocity, we will be changing it.
-            velocity = GetComponent<Rigidbody>().velocity;
+            velocity = GetComponent<Rigidbody>().linearVelocity;
 
             ConvertMoveInput(); // converts the relative move vector into local turn & fwd values
 
@@ -140,7 +140,7 @@ using System.Collections;
             UpdateAnimator(); // send input and other state parameters to the animator
 
             // reassign velocity, since it will have been modified by the above functions.
-            GetComponent<Rigidbody>().velocity = velocity;
+            GetComponent<Rigidbody>().linearVelocity = velocity;
 
 
         }
@@ -400,8 +400,8 @@ using System.Collections;
                 Vector3 v = (animator.deltaPosition*moveSpeedMultiplier)/Time.deltaTime;
 
                 // we preserve the existing y part of the current velocity.
-                v.y = GetComponent<Rigidbody>().velocity.y;
-                GetComponent<Rigidbody>().velocity = v;
+                v.y = GetComponent<Rigidbody>().linearVelocity.y;
+                GetComponent<Rigidbody>().linearVelocity = v;
             }
         }
 

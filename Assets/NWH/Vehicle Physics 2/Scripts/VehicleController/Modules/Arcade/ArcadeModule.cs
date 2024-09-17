@@ -89,7 +89,7 @@ namespace NWH.VehiclePhysics2.Modules.ArcadeModule
                     return;
                 }
 
-                Vector3 normVel = vehicleController.vehicleRigidbody.velocity.normalized;
+                Vector3 normVel = vehicleController.vehicleRigidbody.linearVelocity.normalized;
                 Vector3 vehicleDir = vehicleController.transform.forward;
                 _driftAngle = Vector3.SignedAngle(normVel, vehicleDir, vehicleController.transform.up);
                 _driftAngle = Mathf.Sign(_driftAngle)

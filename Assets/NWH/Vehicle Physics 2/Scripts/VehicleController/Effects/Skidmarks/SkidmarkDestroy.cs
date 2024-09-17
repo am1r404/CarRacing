@@ -55,7 +55,7 @@ namespace NWH.VehiclePhysics2.Effects
         {
             _meshRenderer = GetComponent<MeshRenderer>();
 
-            if (GraphicsSettings.renderPipelineAsset == null)
+            if (GraphicsSettings.defaultRenderPipeline == null)
             {
                 _initMatAlpha = _meshRenderer.material.color.a;
             }
@@ -78,7 +78,7 @@ namespace NWH.VehiclePhysics2.Effects
             }
             else
             {
-                if (GraphicsSettings.renderPipelineAsset == null)
+                if (GraphicsSettings.defaultRenderPipeline == null)
                 {
                     Material material = _meshRenderer.material;
                     Color color = material.color;

@@ -25,7 +25,7 @@ public class CharacterMotion : MonoBehaviour
     {
 
 
-        locVel = transform.InverseTransformDirection(GetComponent<Rigidbody>().velocity);
+        locVel = transform.InverseTransformDirection(GetComponent<Rigidbody>().linearVelocity);
         GetComponent<Rigidbody>().AddRelativeTorque(new Vector3(0, 0, -Input.GetAxis("Horizontal") * PYR[0] * GetComponent<Rigidbody>().mass));
         GetComponent<Rigidbody>().AddRelativeTorque(new Vector3(0, Input.GetAxis("Horizontal") * PYR[1] * GetComponent<Rigidbody>().mass, 0));
         GetComponent<Rigidbody>().AddRelativeTorque(new Vector3(Input.GetAxis("Vertical") * PYR[2] * GetComponent<Rigidbody>().mass, 0, 0));

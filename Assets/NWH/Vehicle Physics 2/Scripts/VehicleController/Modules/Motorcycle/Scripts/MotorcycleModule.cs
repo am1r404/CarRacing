@@ -171,7 +171,7 @@ namespace NWH.VehiclePhysics2.Modules.MotorcycleModule
         {
             if (base.VC_Enable(calledByParent))
             {
-                vehicleController.vehicleRigidbody.angularDrag = 0f;
+                vehicleController.vehicleRigidbody.angularDamping = 0f;
                 return true;
             }
 
@@ -185,7 +185,7 @@ namespace NWH.VehiclePhysics2.Modules.MotorcycleModule
             {
                 // Set the angular drag to keep the bike upright since the VC_FixedUpdate
                 // is not run on disabled vehicles, so lean PID controller will be inactive.
-                vehicleController.vehicleRigidbody.angularDrag = 100f;
+                vehicleController.vehicleRigidbody.angularDamping = 100f;
 
                 // Park the bike upright when disabled.
                 var angles = vehicleController.transform.localEulerAngles;

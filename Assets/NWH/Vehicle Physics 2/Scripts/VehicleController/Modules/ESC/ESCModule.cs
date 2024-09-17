@@ -42,7 +42,7 @@ namespace NWH.VehiclePhysics2.Modules.ESC
                 return;
             }
 
-            float angle = Vector3.SignedAngle(vehicleController.vehicleRigidbody.velocity, vehicleController.vehicleTransform.forward, vehicleController.vehicleTransform.up);
+            float angle = Vector3.SignedAngle(vehicleController.vehicleRigidbody.linearVelocity, vehicleController.vehicleTransform.forward, vehicleController.vehicleTransform.up);
             angle -= vehicleController.steering.angle * 0.5f;
             float absAngle = angle < 0 ? -angle : angle;
 

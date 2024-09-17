@@ -13,13 +13,31 @@ MonoBehaviour:
   m_Name: Default Local Group
   m_EditorClassIdentifier: 
   m_GroupName: Default Local Group
-  m_Data:
-    m_SerializedData: []
   m_GUID: 1ab3233e5ff4d415698e62fdfb2c05ab
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: 0d6a0c181517e6f4d89ad9ebc70b6b95
+    m_Address: SemiTruck
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3e1aced4144dd784c8f3878b71b33dcf
+    m_Address: SportsCar
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 858cc54b36ffeff478f53c58eef2b16c
+    m_Address: Niva
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b9a717f48a878014eace6ca32ea4f360
+    m_Address: MonsterTruck
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: e370f3e33b31344e0ac0b3c3fa9e8a23, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: 6304d1582731e43deb6838804c82df2b, type: 2}
     - {fileID: 11400000, guid: a4ffd3829e9394bf2800d9bbb7ca50e0, type: 2}
+    - {fileID: 11400000, guid: 6304d1582731e43deb6838804c82df2b, type: 2}
