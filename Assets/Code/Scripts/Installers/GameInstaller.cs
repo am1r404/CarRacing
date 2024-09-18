@@ -1,4 +1,7 @@
+// Assets/Code/Scripts/Installers/GameInstaller.cs
 using CodeBase.Infrastructure.States;
+using CodeBase.Services;
+using CodeBase.UI;
 using UnityEngine;
 using Zenject;
 
@@ -23,20 +26,20 @@ public class GameInstaller : MonoInstaller
     private void InstallVehicleFactory()
     {
         Container.Bind<VehicleAddressList>()
-                 .FromScriptableObject(vehicleAddressList)
-                 .AsSingle();
-        
+            .FromScriptableObject(vehicleAddressList)
+            .AsSingle();
+
         Container.BindInterfacesAndSelfTo<AddressableVehicleFactory>()
-                 .AsSingle()
-                 .NonLazy();
+            .AsSingle()
+            .NonLazy();
     }
-    
+
     private void InstallStates()
     {
         // Bind states
         Container.Bind<BootstrapState>().AsSingle();
         Container.Bind<LobbyState>().AsSingle();
-        
+
         // Bind additional states here if necessary
         // Container.Bind<AnotherState>().AsSingle();
     }
@@ -44,8 +47,8 @@ public class GameInstaller : MonoInstaller
     private void InstallGameBootstrapper()
     {
         Container.BindInterfacesAndSelfTo<GameBootstrapper>()
-                 .FromComponentInHierarchy()
-                 .AsSingle()
-                 .NonLazy();
+            .FromComponentInHierarchy()
+            .AsSingle()
+            .NonLazy();
     }
 }

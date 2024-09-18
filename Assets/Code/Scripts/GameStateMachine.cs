@@ -1,3 +1,4 @@
+// Assets/Code/Scripts/GameStateMachine.cs
 using System;
 using System.Collections.Generic;
 using Zenject;
@@ -24,7 +25,6 @@ namespace CodeBase.Infrastructure.States
             // Register additional states here if needed
         }
 
-        // Changed from private to public to ensure it can be accessed if needed
         public void RegisterState<TState>() where TState : IState
         {
             var state = _container.Instantiate<TState>();
