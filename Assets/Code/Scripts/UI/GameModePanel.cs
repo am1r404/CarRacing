@@ -11,7 +11,8 @@ namespace CodeBase.UI
     {
         [SerializeField] private GameObject root;
         [SerializeField] private Button closeButton;
-        [SerializeField] private GameModeButton[] gameModeButtons;
+        [SerializeField] private Button footballButton;
+        [SerializeField] private Button parkourButton;
 
         private GameModeService _gameModeService;
         public event Action<GameMode> OnGameModeSelected;
@@ -26,10 +27,11 @@ namespace CodeBase.UI
         {
             closeButton.onClick.AddListener(Hide);
 
-            foreach (var button in gameModeButtons)
-            {
-                button.OnClicked += HandleGameModeSelection;
-            }
+            if (footballButton != null)
+                footballButton.onClick.AddListener(() => SelectGameMode(GameMode.Football));
+
+            if (parkourButton != null)
+                parkourButton.onClick.AddListener(() => SelectGameMode(GameMode.Parkour));
         }
 
         public void Show()
@@ -42,9 +44,8 @@ namespace CodeBase.UI
             root.SetActive(false);
         }
 
-        private void HandleGameModeSelection(GameMode gameMode)
+        private void SelectGameMode(GameMode gameMode)
         {
-            _gameModeService.SetGameMode(gameMode);
             OnGameModeSelected?.Invoke(gameMode);
             Hide();
         }
@@ -53,10 +54,11 @@ namespace CodeBase.UI
         {
             closeButton.onClick.RemoveListener(Hide);
 
-            foreach (var button in gameModeButtons)
-            {
-                button.OnClicked -= HandleGameModeSelection;
-            }
+            if (footballButton != null)
+                footballButton.onClick.RemoveAllListeners();
+
+            if (parkourButton != null)
+                parkourButton.onClick.RemoveAllListeners();
         }
     }
 }

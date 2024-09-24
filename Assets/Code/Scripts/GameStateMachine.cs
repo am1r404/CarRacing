@@ -20,8 +20,6 @@ namespace CodeBase.Infrastructure.States
         // This method will be called automatically by Zenject
         public void Initialize()
         {
-            RegisterState<BootstrapState>();
-            RegisterState<LobbyState>();
             // Register additional states here if needed
         }
 
@@ -31,19 +29,42 @@ namespace CodeBase.Infrastructure.States
             _states[typeof(TState)] = state;
         }
 
+        public void RegisterStateInstance<TState>(TState state) where TState : IState
+        {
+            _states[typeof(TState)] = state;
+        }
+
         public void Enter<TState>() where TState : class, IState
         {
             _activeState?.Exit();
-            _activeState = _states[typeof(TState)];
-            _activeState.Enter();
+            if (_states.TryGetValue(typeof(TState), out var state))
+            {
+                _activeState = state;
+                _activeState.Enter();
+            }
+            else
+            {
+                throw new Exception($"State {typeof(TState)} not registered.");
+            }
         }
 
         public void Enter<TState, TPayload>(TPayload payload) where TState : class, IPayloadState<TPayload>
         {
             _activeState?.Exit();
-            var state = _states[typeof(TState)] as IPayloadState<TPayload>;
-            _activeState = state;
-            state.Enter(payload);
+            if (_states.TryGetValue(typeof(TState), out var state))
+            {
+                var payloadState = state as IPayloadState<TPayload>;
+                if (payloadState == null)
+                {
+                    throw new Exception($"State {typeof(TState)} does not implement IPayloadState<{typeof(TPayload)}>");
+                }
+                _activeState = payloadState;
+                payloadState.Enter(payload);
+            }
+            else
+            {
+                throw new Exception($"State {typeof(TState)} not registered.");
+            }
         }
     }
 }

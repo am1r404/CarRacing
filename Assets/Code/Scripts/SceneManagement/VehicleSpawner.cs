@@ -1,44 +1,38 @@
-// Assets/Scripts/SceneManagement/VehicleSpawner.cs
-
 using NWH.Common.SceneManagement;
 using NWH.Common.Vehicles;
 using UnityEngine;
 using Zenject;
 
-public class VehicleSpawner : MonoBehaviour
+public class VehicleSpawner
 {
     private IVehicleFactory _vehicleFactory;
-
+    private VehicleAddressList _vehicleAddressList;
     [Inject]
-    private void Construct(IVehicleFactory vehicleFactory)
+    private void Construct(IVehicleFactory vehicleFactory, VehicleAddressList vehicleAddressList)
     {
         _vehicleFactory = vehicleFactory;
+        _vehicleAddressList = vehicleAddressList;
     }
 
     public void SpawnVehicle(string vehicleName, Vector3 position, Quaternion rotation)
     {
-        _vehicleFactory.CreateVehicle(vehicleName, position, rotation, OnVehicleCreated);
+        string address = _vehicleAddressList.GetAddressableKey(vehicleName);
+        if (string.IsNullOrEmpty(address))
+        {
+            Debug.LogError($"Vehicle name '{vehicleName}' not found in VehicleAddressList.");
+            return;
+        }
+
+        _vehicleFactory.CreateVehicle(address, position, rotation, OnVehicleCreated);
     }
 
     private void OnVehicleCreated(GameObject vehicle)
     {
         Debug.Log("Vehicle spawned dynamically: " + vehicle.name);
         // Register with VehicleChanger
-        VehicleChanger.Instance.RegisterVehicle(vehicle.GetComponent<Vehicle>());
+        //VehicleChanger.Instance.RegisterVehicle(vehicle.GetComponent<Vehicle>());
 
         // Optionally set it as the active vehicle
-        VehicleChanger.Instance.ChangeVehicle(VehicleChanger.Instance.vehicles.IndexOf(vehicle.GetComponent<Vehicle>()));
-    }
-
-    // Example usage: spawn a vehicle when pressing the 'V' key
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.V))
-        {
-            Vector3 spawnPosition = new Vector3(Random.Range(-10, 10), 0, Random.Range(-10, 10));
-            Quaternion spawnRotation = Quaternion.Euler(0, Random.Range(0, 360), 0);
-            string vehicleName = "SUV"; // Must match an entry in VehicleAddressList
-            SpawnVehicle(vehicleName, spawnPosition, spawnRotation);
-        }
+        //VehicleChanger.Instance.ChangeVehicle(VehicleChanger.Instance.vehicles.IndexOf(vehicle.GetComponent<Vehicle>()));
     }
 }

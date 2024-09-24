@@ -1,4 +1,3 @@
-// Assets/Scripts/Config/VehicleAddressList.cs
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -17,6 +16,11 @@ public class VehicleAddressList : ScriptableObject
     public string GetAddressableKey(string name)
     {
         var vehicle = vehicles.Find(v => v.vehicleName.Equals(name, System.StringComparison.OrdinalIgnoreCase));
+        if (vehicle.Equals(default(VehicleInfo)))
+        {
+            Debug.LogWarning($"Vehicle name '{name}' not found in VehicleAddressList.");
+            return null;
+        }
         return vehicle.addressableKey;
     }
 }

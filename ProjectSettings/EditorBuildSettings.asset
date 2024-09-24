@@ -11,6 +11,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Lobby.unity
     guid: c11164bd547364a2382c7e483d9f5ebf
+  - enabled: 1
+    path: Assets/Scenes/Garage.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/Football.unity
+    guid: 189d9415025e99047a2a4ec895b2f0ac
+  - enabled: 1
+    path: Assets/Scenes/Parkour.unity
+    guid: 9e01fe880e93d1f408c730ae615a1262
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: 9865ef503f4634962b12a59e9dcbe5de, type: 2}
   m_UseUCBPForAssetBundles: 0

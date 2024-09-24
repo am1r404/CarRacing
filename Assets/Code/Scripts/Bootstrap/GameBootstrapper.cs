@@ -1,24 +1,20 @@
 using CodeBase.Infrastructure.States;
-using UnityEngine;
 using Zenject;
 
-public class GameBootstrapper : MonoBehaviour
+public class GameBootstrapper : IInitializable
 {
-    private IGameStateMachine _gameStateMachine;
+    private readonly IGameStateMachine _gameStateMachine;
 
     [Inject]
-    private void Construct(IGameStateMachine gameStateMachine)
+    public GameBootstrapper(IGameStateMachine gameStateMachine)
     {
         _gameStateMachine = gameStateMachine;
     }
 
-    private void Start()
+    public void Initialize()
     {
-        InitializeGame();
-    }
-
-    private void InitializeGame()
-    {
+         _gameStateMachine.RegisterState<FootballState>();
+        _gameStateMachine.RegisterState<BootstrapState>();
         _gameStateMachine.Enter<BootstrapState>();
     }
 }

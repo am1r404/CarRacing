@@ -6,6 +6,8 @@ using UnityEngine.UI;
 using Zenject;
 using CodeBase.Services;
 using TMPro;
+using UnityEngine.SceneManagement;
+using CodeBase.Infrastructure.Services;
 
 namespace CodeBase.UI
 {
@@ -15,16 +17,19 @@ namespace CodeBase.UI
         [SerializeField] private TextMeshProUGUI gameModeButtonText;
         [SerializeField] private Button playButton;
         [SerializeField] public GameModePanel gameModePanel;
+        [SerializeField] private Button garageButton;
 
         private IGameStateMachine _gameStateMachine;
         private GameModeService _gameModeService;
+        private ISceneLoader _sceneLoader;
 
         [Inject]
-        private void Construct(IGameStateMachine gameStateMachine, GameModeService gameModeService)
+        private void Construct(IGameStateMachine gameStateMachine, GameModeService gameModeService, ISceneLoader sceneLoader)
         {
             Debug.Log("LobbyUIController: Construct called");
             _gameStateMachine = gameStateMachine;
             _gameModeService = gameModeService;
+            _sceneLoader = sceneLoader;
         }
 
         private void Start()
@@ -38,13 +43,12 @@ namespace CodeBase.UI
 
             gameModeButton.onClick.AddListener(OpenGameModePanel);
             playButton.onClick.AddListener(StartGame);
+            garageButton.onClick.AddListener(LoadGarageScene);
             gameModePanel.OnGameModeSelected += HandleGameModeSelection;
 
-            // Subscribe to GameModeService events
             _gameModeService.OnGameModeChanged += UpdateGameModeButtonText;
 
-            // Set initial game mode text
-            UpdateGameModeButtonText(_gameModeService.GetCurrentGameMode());
+            UpdateGameModeButtonText(_gameModeService.CurrentGameMode);
         }
 
         private void OnDestroy()
@@ -68,6 +72,11 @@ namespace CodeBase.UI
             {
                 playButton.onClick.RemoveListener(StartGame);
             }
+
+            if (garageButton != null)
+            {
+                garageButton.onClick.RemoveListener(LoadGarageScene);
+            }
         }
 
         private void OpenGameModePanel()
@@ -77,7 +86,29 @@ namespace CodeBase.UI
 
         private void StartGame()
         {
-            // _gameStateMachine.Enter<GameplayState>();
+            Debug.Log("LobbyUIController: StartGame called");
+            switch(_gameModeService.CurrentGameMode)
+            {
+                case GameMode.Football:
+                    _gameStateMachine.Enter<FootballState>();
+                    break;
+                case GameMode.Parkour:
+                    _sceneLoader.LoadSceneAsync("Parkour");
+                    break;
+                default:
+                    Debug.LogError("LobbyUIController: Unsupported Game Mode");
+                    break;
+            }
+        }
+
+        private void LoadGarageScene()
+        {
+            _sceneLoader.LoadSceneAsync("Garage", OnGarageSceneLoaded);
+        }    
+
+        private void OnGarageSceneLoaded()
+        {
+            _gameStateMachine.Enter<GarageState>();
         }
 
         private void UpdateGameModeButtonText(GameMode gameMode)
@@ -88,6 +119,7 @@ namespace CodeBase.UI
         private void HandleGameModeSelection(GameMode gameMode)
         {
             _gameModeService.SetGameMode(gameMode);
+            UpdateGameModeButtonText(gameMode);
             gameModePanel.Hide();
         }
     }

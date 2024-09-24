@@ -127,7 +127,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 241975401}
-  - component: {fileID: 241975403}
   - component: {fileID: 241975402}
   - component: {fileID: 241975404}
   m_Layer: 0
@@ -164,19 +163,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b76c9c1aee5c9f408ca7ff4a817a850, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vehicleAddressList: {fileID: 11400000, guid: 03b1de1b64a3ca4499af159f7c8d7c77, type: 2}
---- !u!114 &241975403
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 241975400}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1ac86b001a427b4fbaff18ac6886703, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &241975404
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -189,7 +175,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89715ad69b973a14899afa2c6730b30b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _scriptableObjectInstallers: []
+  _scriptableObjectInstallers:
+  - {fileID: 11400000, guid: 83d439eaaf8804b479a0450a60c98c8c, type: 2}
   _monoInstallers:
   - {fileID: 241975402}
   _installerPrefabs: []
