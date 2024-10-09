@@ -2,11 +2,13 @@ using NWH.Common.SceneManagement;
 using NWH.Common.Vehicles;
 using UnityEngine;
 using Zenject;
+using System;
 
 public class VehicleSpawner
 {
     private IVehicleFactory _vehicleFactory;
     private VehicleAddressList _vehicleAddressList;
+
     [Inject]
     private void Construct(IVehicleFactory vehicleFactory, VehicleAddressList vehicleAddressList)
     {
@@ -14,25 +16,33 @@ public class VehicleSpawner
         _vehicleAddressList = vehicleAddressList;
     }
 
-    public void SpawnVehicle(string vehicleName, Vector3 position, Quaternion rotation)
+    public void SpawnVehicle(string vehicleName, Vector3 position, Quaternion rotation, Action<GameObject> callback)
     {
         string address = _vehicleAddressList.GetAddressableKey(vehicleName);
         if (string.IsNullOrEmpty(address))
         {
             Debug.LogError($"Vehicle name '{vehicleName}' not found in VehicleAddressList.");
+            callback?.Invoke(null);
             return;
         }
 
-        _vehicleFactory.CreateVehicle(address, position, rotation, OnVehicleCreated);
+        _vehicleFactory.CreateVehicle(address, position, rotation, (vehicle) =>
+        {
+            OnVehicleCreated(vehicle, callback);
+        });
     }
 
-    private void OnVehicleCreated(GameObject vehicle)
+    private void OnVehicleCreated(GameObject vehicle, Action<GameObject> callback)
     {
-        Debug.Log("Vehicle spawned dynamically: " + vehicle.name);
-        // Register with VehicleChanger
-        //VehicleChanger.Instance.RegisterVehicle(vehicle.GetComponent<Vehicle>());
+        if (vehicle != null)
+        {
+            Debug.Log("Vehicle spawned dynamically: " + vehicle.name);
+        }
+        else
+        {
+            Debug.LogError("Failed to create vehicle.");
+        }
 
-        // Optionally set it as the active vehicle
-        //VehicleChanger.Instance.ChangeVehicle(VehicleChanger.Instance.vehicles.IndexOf(vehicle.GetComponent<Vehicle>()));
+        callback?.Invoke(vehicle);
     }
 }

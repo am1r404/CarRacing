@@ -17,7 +17,7 @@ public class Perspective : MonoBehaviour
         ortho = Matrix4x4.Ortho(-orthographicSize * aspect, orthographicSize * aspect, -orthographicSize, orthographicSize, near, far);
         perspective = Matrix4x4.Perspective(fov, aspect, near, far);
         m_camera = GetComponent<Camera>();
-        // m_camera.projectionMatrix = ortho;
+        //m_camera.projectionMatrix = ortho;
         orthoOn = false;
         blender = (MatrixBlender)GetComponent(typeof(MatrixBlender));
     }

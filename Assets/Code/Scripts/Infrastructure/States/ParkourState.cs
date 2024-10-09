@@ -8,19 +8,15 @@ namespace CodeBase.Infrastructure.States
 {
     public class ParkourState : IState
     {
-        private readonly IGameStateMachine _gameStateMachine;
-        private readonly ISceneLoader _sceneLoader;
-        private readonly GameModeService _gameModeService;
         private CarPositionManager _carPositionManager;
         private VehicleSpawner _vehicleSpawner;
+        private CameraFollow _cameraFollow;
 
-        public ParkourState(IGameStateMachine gameStateMachine, ISceneLoader sceneLoader, GameModeService gameModeService, CarPositionManager carPositionManager, VehicleSpawner vehicleSpawner)
+        public ParkourState(CarPositionManager carPositionManager, VehicleSpawner vehicleSpawner,CameraFollow cameraFollow)
         {
-            _gameStateMachine = gameStateMachine;
-            _sceneLoader = sceneLoader;
-            _gameModeService = gameModeService;
             _carPositionManager = carPositionManager;
             _vehicleSpawner = vehicleSpawner;
+            _cameraFollow = cameraFollow;
         }
 
         public void Enter()
@@ -34,11 +30,26 @@ namespace CodeBase.Infrastructure.States
             Transform playerCarPosition = _carPositionManager.GetPlayerCarPosition();
             if (playerCarPosition != null)
             {
-                _vehicleSpawner.SpawnVehicle("SportsCar", playerCarPosition.position, playerCarPosition.rotation);
+                _vehicleSpawner.SpawnVehicle("SportsCar", playerCarPosition.position, playerCarPosition.rotation,OnPlayerCarSpawned);
+                _cameraFollow.SetTarget(playerCarPosition);
             }
             else
             {
                 Debug.LogError("No player car position found");
+            }
+        }
+        
+        private void OnPlayerCarSpawned(GameObject playerCar)
+        {
+            if (playerCar != null)
+            {
+                // Assign the spawned vehicle to the camera
+                _cameraFollow.SetTarget(playerCar.transform);
+                Debug.Log("Player car spawned in Garage and camera assigned");
+            }
+            else
+            {
+                Debug.LogError("Failed to spawn player car");
             }
         }
 

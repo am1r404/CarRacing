@@ -28,6 +28,7 @@ public class ProjectInstaller : MonoInstaller
     {
         Container.BindInterfacesAndSelfTo<GameModeService>().AsSingle().NonLazy();
         Container.BindInterfacesAndSelfTo<SceneLoader>().AsSingle().NonLazy();
+        // Container.BindInterfacesTo<UnityLobbyService>().AsSingle();
     }
 
     private void BindStateMachine()

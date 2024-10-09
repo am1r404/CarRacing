@@ -28,6 +28,8 @@ public class BodyPaintPicker : MonoBehaviour
     void Start()
     {
         liveryCreator = FindObjectOfType<LiveryCreator>();
+        liveryCreator.canvasMaterial.SetTexture("_DetailAlbedoMap", null);
+        liveryCreator.canvasMaterial.SetFloat("_FirstTexUVSet",0);
     }
 
     private static void RGBToHSV(Color color, out float h, out float s, out float v)
@@ -223,7 +225,7 @@ public class BodyPaintPicker : MonoBehaviour
     public void SmoothnessChange(float v)
     {
         liveryCreator = FindObjectOfType<LiveryCreator>();
-        liveryCreator.canvasMaterial.SetFloat("_Smoothness", GetComponentsInChildren<Slider>()[1].value);
+        liveryCreator.canvasMaterial.SetFloat("_Glossiness", GetComponentsInChildren<Slider>()[1].value);
     }
 
     public void Overwrite()

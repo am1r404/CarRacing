@@ -18,6 +18,7 @@ namespace CodeBase.UI
         [SerializeField] private Button playButton;
         [SerializeField] public GameModePanel gameModePanel;
         [SerializeField] private Button garageButton;
+        [SerializeField] private Button friendButton;
 
         private IGameStateMachine _gameStateMachine;
         private GameModeService _gameModeService;

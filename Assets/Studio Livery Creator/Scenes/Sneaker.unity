@@ -16347,8 +16347,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 671047638}
   m_HandleRect: {fileID: 671047637}
   m_Direction: 2
-  m_Value: 0.9999999
-  m_Size: 0.0748789
+  m_Value: 1.0000001
+  m_Size: 0.07487891
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -19020,7 +19020,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0d363d40ca029ae4f8642d1539624290, type: 2}
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

@@ -16,6 +16,7 @@ public class ParkourInstaller : MonoInstaller
     {   
         Container.Bind<CarPositionManager>().FromComponentInHierarchy().AsSingle();
         Container.Bind<ParkourState>().AsSingle().NonLazy();
+        Container.Bind<CameraFollow>().FromComponentInHierarchy().AsSingle();
         RegisterParkourState();
     }
     

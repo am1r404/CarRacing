@@ -48,6 +48,15 @@ MonoBehaviour:
     - PPv2URPConverters
     - Sirenix.OdinInspector.CompatibilityLayer
     - Sirenix.OdinInspector.CompatibilityLayer.Editor
+    - UniRx
+    - UniRx.Examples
+    - UniTask
+    - UniTask.Addressables
+    - UniTask.DOTween
+    - UniTask.Editor
+    - UniTask.Linq
+    - UniTask.TextMeshPro
+    - unity-websocket-sharp
     - Zenject
     - Zenject-IntegrationTests
     - Zenject-TestFramework

@@ -32,7 +32,7 @@ namespace CodeBase.Infrastructure.States
             Transform playerCarPosition = _carPositionManager.GetPlayerCarPosition();
             if (playerCarPosition != null)
             {
-                _vehicleSpawner.SpawnVehicle("SportsCar", playerCarPosition.position, playerCarPosition.rotation);
+                _vehicleSpawner.SpawnVehicle("SportsCar", playerCarPosition.position, playerCarPosition.rotation,OnPlayerCarSpawned);
                 Debug.Log("Player car spawned in Garage");
             }
             else
@@ -40,6 +40,19 @@ namespace CodeBase.Infrastructure.States
                 Debug.LogError("No player car position found in Garage");
             }
         }
+        
+        private void OnPlayerCarSpawned(GameObject playerCar)
+        {
+            if (playerCar != null)
+            {
+                Debug.Log("Player car spawned in Garage and camera assigned");
+            }
+            else
+            {
+                Debug.LogError("Failed to spawn player car");
+            }
+        }
+        
         public void Exit()
         {
             Debug.Log("Exiting Garage State");

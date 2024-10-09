@@ -31,6 +31,5 @@ public class GarageInstaller : MonoInstaller
     {
         var garageState = Container.Resolve<GarageState>();
         _gameStateMachine.RegisterStateInstance(garageState);
-        _gameStateMachine.Enter<GarageState>();
     }
 }
