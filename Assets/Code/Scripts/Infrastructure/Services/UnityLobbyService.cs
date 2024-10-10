@@ -144,7 +144,6 @@ namespace CodeBase.Services
         UniTask<Lobby> JoinLobbyAsync(string lobbyId);
         UniTask LeaveLobbyAsync();
 
-        // Reactive properties for lobby events
         IObservable<Lobby> OnLobbyUpdated { get; }
         IObservable<Player> OnPlayerJoined { get; }
         IObservable<Player> OnPlayerLeft { get; }

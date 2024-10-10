@@ -56,7 +56,6 @@ namespace CodeBase.Infrastructure.States
         public void Exit()
         {
             Debug.Log("Exiting Garage State");
-            // Cleanup if necessary when exiting the Garage state
         }
     }
 }

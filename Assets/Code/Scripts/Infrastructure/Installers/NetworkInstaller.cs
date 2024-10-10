@@ -7,6 +7,5 @@
        public override void InstallBindings()
        {
            Container.Bind<NetworkManager>().FromInstance(NetworkManager.Singleton).AsSingle().NonLazy();
-           //Container.BindInterfacesAndSelfTo<CustomNetworkManager>().AsSingle().NonLazy();
        }
    }

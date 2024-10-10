@@ -1,4 +1,3 @@
-// Assets/Code/Scripts/States/ParkourState.cs
 using CodeBase.Infrastructure.Services;
 using CodeBase.Services;
 using UnityEngine;
@@ -62,15 +61,11 @@ namespace CodeBase.Infrastructure.States
 
         private void InitializeParkourGame()
         {
-            // Initialize parkour-specific game elements here
-            // e.g., spawn the player, set up obstacles, timers, etc.
         }
 
         public void Exit()
         {
             Debug.Log("Exiting Parkour State");
-            // Cleanup parkour-specific game elements here
-            // e.g., destroy obstacles, reset timers, etc.
         }
     }
 }

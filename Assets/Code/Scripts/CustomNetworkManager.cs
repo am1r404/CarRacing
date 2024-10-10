@@ -1,5 +1,4 @@
-   // Assets/Code/Managers/CustomNetworkManager.cs
-   using Unity.Netcode;
+using Unity.Netcode;
    using UnityEngine;
 
    /*public class CustomNetworkManager : NetworkManager
@@ -10,5 +9,4 @@
               Debug.Log($"Client {clientId} connected");
          }
 
-       // Override methods if you need custom behavior
    }*/

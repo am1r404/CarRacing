@@ -18,7 +18,6 @@ namespace CodeBase.Infrastructure.Services
                 return;
             }
 
-            // Start unloading the current scene if it exists
             if (!string.IsNullOrEmpty(_activeSceneName))
             {
                 UnloadSceneAsync(_activeSceneName, () => LoadNewScene(sceneName, onLoaded));

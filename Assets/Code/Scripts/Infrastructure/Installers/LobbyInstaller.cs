@@ -15,18 +15,15 @@ public class LobbyInstaller : MonoInstaller
 
     public override void InstallBindings()
     {
-        // Bind CarPositionManager first
         Container.Bind<CarPositionManager>()
                  .FromComponentInHierarchy()
                  .AsSingle()
                  .NonLazy();
 
-        // Bind LobbyState
         Container.Bind<LobbyState>()
                  .AsSingle()
                  .NonLazy();
 
-        // Install UI bindings
         InstallUI();
 
         RegisterLobbyState();
@@ -40,7 +37,6 @@ public class LobbyInstaller : MonoInstaller
 
     private void InstallUI()
     {
-        // Bind LobbyUIController with interfaces to ensure Initialize is called
         Container.BindInterfacesAndSelfTo<LobbyUIController>()
                  .FromComponentInHierarchy()
                  .AsSingle()

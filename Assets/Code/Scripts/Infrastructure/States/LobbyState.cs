@@ -37,11 +37,6 @@ namespace CodeBase.Infrastructure.States
         {
             try
             {
-                // Example: Create a new lobby
-                //var lobby = await _unityLobbyService.CreateLobbyAsync("My Lobby", maxPlayers: 4);
-
-                // Alternatively, join an existing lobby
-                // var lobby = await _unityLobbyService.JoinLobbyAsync("lobbyId");
 
                 SpawnPlayerCar();
                 PrepareFriendCarPositions();
@@ -49,7 +44,6 @@ namespace CodeBase.Infrastructure.States
             catch (Exception e)
             {
                 Debug.LogError($"Failed to initialize lobby: {e.Message}");
-                // Handle failure (e.g., retry, notify user, transition to error state)
             }
         }
 
@@ -99,19 +93,16 @@ namespace CodeBase.Infrastructure.States
         // private void OnPlayerJoined(Player player)
         // {
         //     Debug.Log($"Player joined: {player.Data["PlayerName"].Value}");
-        //     // Handle new player joining, e.g., spawn their car
         // }
         //
         // private void OnPlayerLeft(Player player)
         // {
         //     Debug.Log($"Player left: {player.Data["PlayerName"].Value}");
-        //     // Handle player leaving, e.g., remove their car
         // }
         //
         // private void OnLobbyUpdated(Lobby lobby)
         // {
         //     Debug.Log($"Lobby updated: {lobby.Id}");
-        //     // Handle lobby updates, e.g., update UI or notify LobbyState
         // }
 
         public void Exit()
@@ -120,7 +111,6 @@ namespace CodeBase.Infrastructure.States
             _carPositionManager.ResetFriendCarIndex();
             // LeaveLobbyAsync().Forget();
             _disposables.Clear();
-            // Implement any additional cleanup if needed
         }
 
         // private async UniTaskVoid LeaveLobbyAsync()

@@ -1,4 +1,3 @@
-// Assets/Code/Scripts/GameStateMachine.cs
 using System;
 using System.Collections.Generic;
 using Zenject;
@@ -17,10 +16,8 @@ namespace CodeBase.Infrastructure.States
             _states = new Dictionary<Type, IState>();
         }
 
-        // This method will be called automatically by Zenject
         public void Initialize()
         {
-            // Register additional states here if needed
         }
 
         public void RegisterState<TState>() where TState : IState

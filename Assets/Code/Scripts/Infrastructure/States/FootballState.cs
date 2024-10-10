@@ -38,15 +38,11 @@ namespace CodeBase.Infrastructure.States
 
         private void InitializeFootballGame()
         {
-            // Initialize football-specific game elements here
-            // e.g., spawn players, set up the field, etc.
         }
 
         public void Exit()
         {
             Debug.Log("Exiting Football State");
-            // Cleanup football-specific game elements here
-            // e.g., destroy spawned players, reset scores, etc.
         }
     }
 }

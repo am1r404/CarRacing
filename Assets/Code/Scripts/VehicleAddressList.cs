@@ -7,8 +7,8 @@ public class VehicleAddressList : ScriptableObject
     [System.Serializable]
     public struct VehicleInfo
     {
-        public string vehicleName;      // Human-readable name for the vehicle
-        public string addressableKey;   // Addressable key for the vehicle prefab
+        public string vehicleName;
+        public string addressableKey;
     }
 
     public List<VehicleInfo> vehicles = new List<VehicleInfo>();

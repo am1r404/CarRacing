@@ -23,7 +23,6 @@ namespace CodeBase.Services
 
         public void Initialize()
         {
-            // Initialize cars based on the current game mode
             CreateCars(_gameModeService.CurrentGameMode);
         }
 

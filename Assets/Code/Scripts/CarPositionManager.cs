@@ -12,7 +12,6 @@ namespace CodeBase.Services
         [Inject]
         private void Construct()
         {
-            // Initialization if needed
         }
 
         private void Awake()
